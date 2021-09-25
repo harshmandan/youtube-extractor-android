@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#000"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/video_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000"
+        app:resize_mode="zoom"
+        app:shutter_background_color="#000">
+    </com.google.android.exoplayer2.ui.PlayerView>
+
+
+    <ProgressBar
+        android:layout_width="40dp"
+        android:id="@+id/progress_bar"
+        android:layout_centerInParent="true"
+        android:layout_height="40dp"/>
+
+
+</RelativeLayout>
