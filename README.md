@@ -12,7 +12,7 @@ allprojects {
   And put this inside your app level gradle.
   
 	dependencies {
-		implementation 'com.github.User:Repo:Tag'
+		  implementation 'com.github.harshmandan:youtube-extractor-android:1.0.0'
 	}
   
   # How to Use.
