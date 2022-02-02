@@ -1,4 +1,4 @@
-package com.harshmandan.youtube_extractor_example;
+package com.harshmandan.youtube_extractor;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.harshmandan.youtube_extractor_example;
+package com.harshmandan.youtube_extractor;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.harshmandan.youtube_extractor_example", appContext.getPackageName());
+        assertEquals("com.harshmandan.youtube_extractor.test", appContext.getPackageName());
     }
 }
