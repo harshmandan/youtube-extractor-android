@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         videoPlayerView = (PlayerView) findViewById(R.id.video_player_view);
         progress_bar = (ProgressBar) findViewById(R.id.progress_bar);
-       // https://www.youtube.com/watch?v=JEgKJZEYsIU
 
         YoutubeExtractor youtubeExtractor = new YoutubeExtractor();
         youtubeExtractor.Extract("https://www.youtube.com/watch?v=Z2F67Ji6Jos", "StreamExtractor", new YoutubeExtractorCallback() {
