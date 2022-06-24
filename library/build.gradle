@@ -12,7 +12,7 @@ repositories {
 }
 
 group = 'com.github.harshmandan'
-version = '1.6'
+version = '1.7'
 
 android {
     compileSdkVersion 30
@@ -22,7 +22,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 15
-        versionName "1.6"
+        versionName "1.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
