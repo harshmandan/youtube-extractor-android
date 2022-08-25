@@ -133,18 +133,24 @@ public class YoutubeExtractor  {
                     try {
                         Log.i("testj", "Lib 2");
                         NewPipe.init(DownloaderTestImpl.getInstance());
+                        Log.i("testj", "Lib 3");
                         YoutubeStreamExtractor streamExtractor = (YoutubeStreamExtractor) YouTube.getStreamExtractor(strings[0]);
+                        Log.i("testj", "Lib 4");
                         streamExtractor.fetchPage();
+                        Log.i("testj", "Lib 5");
                         for (org.schabi.newpipe.extractor.stream.VideoStream stream : streamExtractor.getVideoStreams()) {
+                            Log.i("testj", "Lib Extracting");
                             VideoStream videoStream = new VideoStream(stream.getResolution(), stream.getUrl(), stream.getItag(), stream.getBitrate(), stream.getCodec(), stream.getFps());
                             videoStreamArrayList.add(videoStream);
                         }
 
                         if (videoStreamArrayList.size() <= 0) {
                             YoutubeJExtractor youtubeJExtractor = new YoutubeJExtractor();
+                            Log.i("testj", "Lib 6");
 
                             try {
                                 String videoId = getYouTubeId(strings[0]);
+                                Log.i("testj", "Lib 8");
                                 youtubeJExtractor.extract(videoId, new JExtractorCallback() {
                                     List<AdaptiveVideoStream> videoList = null;
                                     List<MuxedStream> videoListMux = null;
