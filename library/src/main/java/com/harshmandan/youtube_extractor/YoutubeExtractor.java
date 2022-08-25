@@ -104,7 +104,6 @@ public class YoutubeExtractor  {
           }
       }
       else  {
-          Log.i("testj", "LibElse 2");
           YoutubeExtractorTask youtubeExtractorTask = new YoutubeExtractorTask();
           youtubeExtractorTask.execute(Url);
       }
@@ -126,38 +125,38 @@ public class YoutubeExtractor  {
         protected List<VideoStream> doInBackground(String... strings) {
 
             if (!TextUtils.isEmpty(strings[0])) {
-                Log.i("testj", "Lib 1");
+                
 
                 if (ExtractorType.equalsIgnoreCase("NewPipeExtractor") || ExtractorType.equalsIgnoreCase("StreamExtractor")) {
 
                     try {
-                        Log.i("testj", "Lib 2");
+                        
                         NewPipe.init(DownloaderTestImpl.getInstance());
-                        Log.i("testj", "Lib 3");
+                        
                         YoutubeStreamExtractor streamExtractor = (YoutubeStreamExtractor) YouTube.getStreamExtractor(strings[0]);
-                        Log.i("testj", "Lib 4");
+                        
                         streamExtractor.fetchPage();
-                        Log.i("testj", "Lib 5");
+                        
                         for (org.schabi.newpipe.extractor.stream.VideoStream stream : streamExtractor.getVideoStreams()) {
-                            Log.i("testj", "Lib Extracting 2");
+                            
                             VideoStream videoStream = new VideoStream(stream.getResolution(), stream.getUrl(), stream.getItag(), stream.getBitrate(), stream.getCodec(), stream.getFps());
                             videoStreamArrayList.add(videoStream);
                         }
 
                         if (videoStreamArrayList.size() <= 0) {
                             YoutubeJExtractor youtubeJExtractor = new YoutubeJExtractor();
-                            Log.i("testj", "Lib 6");
+                            
 
                             try {
                                 String videoId = getYouTubeId(strings[0]);
-                                Log.i("testj", "Lib 8");
+                                
                                 youtubeJExtractor.extract(videoId, new JExtractorCallback() {
                                     List<AdaptiveVideoStream> videoList = null;
                                     List<MuxedStream> videoListMux = null;
 
                                     @Override
                                     public void onSuccess(VideoPlayerConfig videoData) {
-                                        Log.i("testj", "Lib success");
+                                        
                                         if (videoData != null) {
                                             videoList = videoData.getStreamingData().getAdaptiveVideoStreams();
                                             videoListMux = videoData.getStreamingData().getMuxedStreams();
@@ -182,7 +181,7 @@ public class YoutubeExtractor  {
 
                                     @Override
                                     public void onNetworkException(YoutubeRequestException e) {
-                                        Log.i("testj", "Exception 1");
+                                        
                                         e.printStackTrace();
                                         callback.onError("Something went wrong...");
 
@@ -190,7 +189,7 @@ public class YoutubeExtractor  {
 
                                     @Override
                                     public void onError(Exception exception) {
-                                        Log.i("testj", "Exception 2");
+                                        
                                         exception.printStackTrace();
                                         callback.onError("Something went Wrong...");
 
@@ -198,7 +197,7 @@ public class YoutubeExtractor  {
                                 });
 
                             } catch (Exception exception) {
-                                Log.i("testj", "Exception 3");
+                                
                                 exception.printStackTrace();
                                 callback.onError("Something went Wrong");
 
@@ -208,7 +207,7 @@ public class YoutubeExtractor  {
 
                     } catch (ExtractionException | IOException e) {
 
-                        Log.i("testj", "Exception 4");
+                        
 
                         YoutubeJExtractor youtubeJExtractor = new YoutubeJExtractor();
 
@@ -246,7 +245,7 @@ public class YoutubeExtractor  {
 
                                 @Override
                                 public void onNetworkException(YoutubeRequestException e) {
-                                    Log.i("testj", "Exception 5");
+                                    
                                     e.printStackTrace();
                                     callback.onError("Something went Wrong");
 
@@ -254,7 +253,7 @@ public class YoutubeExtractor  {
 
                                 @Override
                                 public void onError(Exception exception) {
-                                    Log.i("testj", "Exception 6");
+                                    
                                     exception.printStackTrace();
                                     callback.onError("Something went Wrong");
 
@@ -262,7 +261,7 @@ public class YoutubeExtractor  {
                             });
 
                         } catch (Exception exception) {
-                            Log.i("testj", "Exception 7");
+                            
                             exception.printStackTrace();
                             callback.onError("Something went Wrong");
 
@@ -271,7 +270,7 @@ public class YoutubeExtractor  {
                     }
                 }
                 else {
-Log.i("testj", "ELSE 77");
+
                     YoutubeJExtractor youtubeJExtractor = new YoutubeJExtractor();
 
                     try {
@@ -378,7 +377,7 @@ Log.i("testj", "ELSE 77");
 
         @Override
         protected void onPostExecute(List<VideoStream> videoStreams) {
-            Log.i("testj", "PSOTSTS");
+            
             super.onPostExecute(videoStreams);
             callback.onSuccess(videoStreams);
 
