@@ -49,6 +49,7 @@ public class YoutubeExtractor  {
               new com.harshmandan.youtube_extractor.StreamExtractor.YoutubeStreamExtractor(new com.harshmandan.youtube_extractor.StreamExtractor.YoutubeStreamExtractor.ExtractorListner() {
                   @Override
                   public void onExtractionGoesWrong(ExtractorException e) {
+                      Log.i("testj", "GoneWrong");
                       YoutubeExtractorTask youtubeExtractorTask = new YoutubeExtractorTask();
                       youtubeExtractorTask.execute(Url);
 
@@ -56,6 +57,7 @@ public class YoutubeExtractor  {
 
                   @Override
                   public void onExtractionDone(List<YTMedia> adativeStream, List<YTMedia> muxedStream, List<YTSubtitles> subList, YoutubeMeta meta) {
+                      Log.i("testj", "Done");
 
                       Log.e("ADAP", adativeStream.size() + "");
                       Log.e("mux", muxedStream.size() + "");
@@ -92,6 +94,7 @@ public class YoutubeExtractor  {
 
                           callback.onSuccess(videoStreamArrayList);
                       } else {
+                        Log.i("testj", "LibElse 1");
                           YoutubeExtractorTask youtubeExtractorTask = new YoutubeExtractorTask();
                           youtubeExtractorTask.execute(Url);
                       }
@@ -99,12 +102,14 @@ public class YoutubeExtractor  {
                   }
               }).useDefaultLogin().Extract(Url);
           } catch (Exception unused) {
+              Log.i("testj", "Exception");
               YoutubeExtractorTask youtubeExtractorTask = new YoutubeExtractorTask();
               youtubeExtractorTask.execute(Url);
 
           }
       }
       else  {
+          Log.i("testj", "LibElse 2");
           YoutubeExtractorTask youtubeExtractorTask = new YoutubeExtractorTask();
           youtubeExtractorTask.execute(Url);
       }
