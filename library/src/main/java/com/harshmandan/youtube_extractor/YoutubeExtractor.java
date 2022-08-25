@@ -139,7 +139,7 @@ public class YoutubeExtractor  {
                         streamExtractor.fetchPage();
                         Log.i("testj", "Lib 5");
                         for (org.schabi.newpipe.extractor.stream.VideoStream stream : streamExtractor.getVideoStreams()) {
-                            Log.i("testj", "Lib Extracting");
+                            Log.i("testj", "Lib Extracting 2");
                             VideoStream videoStream = new VideoStream(stream.getResolution(), stream.getUrl(), stream.getItag(), stream.getBitrate(), stream.getCodec(), stream.getFps());
                             videoStreamArrayList.add(videoStream);
                         }
