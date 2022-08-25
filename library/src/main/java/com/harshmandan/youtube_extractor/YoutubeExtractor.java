@@ -49,7 +49,6 @@ public class YoutubeExtractor  {
               new com.harshmandan.youtube_extractor.StreamExtractor.YoutubeStreamExtractor(new com.harshmandan.youtube_extractor.StreamExtractor.YoutubeStreamExtractor.ExtractorListner() {
                   @Override
                   public void onExtractionGoesWrong(ExtractorException e) {
-                      Log.i("testj", "GoneWrong");
                       YoutubeExtractorTask youtubeExtractorTask = new YoutubeExtractorTask();
                       youtubeExtractorTask.execute(Url);
 
@@ -57,8 +56,6 @@ public class YoutubeExtractor  {
 
                   @Override
                   public void onExtractionDone(List<YTMedia> adativeStream, List<YTMedia> muxedStream, List<YTSubtitles> subList, YoutubeMeta meta) {
-                      Log.i("testj", "Done");
-
                       Log.e("ADAP", adativeStream.size() + "");
                       Log.e("mux", muxedStream.size() + "");
                       if (adativeStream != null && adativeStream.size() > 0) {
@@ -94,7 +91,6 @@ public class YoutubeExtractor  {
 
                           callback.onSuccess(videoStreamArrayList);
                       } else {
-                        Log.i("testj", "LibElse 1");
                           YoutubeExtractorTask youtubeExtractorTask = new YoutubeExtractorTask();
                           youtubeExtractorTask.execute(Url);
                       }
@@ -102,7 +98,6 @@ public class YoutubeExtractor  {
                   }
               }).useDefaultLogin().Extract(Url);
           } catch (Exception unused) {
-              Log.i("testj", "Exception");
               YoutubeExtractorTask youtubeExtractorTask = new YoutubeExtractorTask();
               youtubeExtractorTask.execute(Url);
 
@@ -131,10 +126,12 @@ public class YoutubeExtractor  {
         protected List<VideoStream> doInBackground(String... strings) {
 
             if (!TextUtils.isEmpty(strings[0])) {
+                Log.i("testj", "Lib 1");
 
                 if (ExtractorType.equalsIgnoreCase("NewPipeExtractor") || ExtractorType.equalsIgnoreCase("StreamExtractor")) {
 
                     try {
+                        Log.i("testj", "Lib 2");
                         NewPipe.init(DownloaderTestImpl.getInstance());
                         YoutubeStreamExtractor streamExtractor = (YoutubeStreamExtractor) YouTube.getStreamExtractor(strings[0]);
                         streamExtractor.fetchPage();
@@ -154,6 +151,7 @@ public class YoutubeExtractor  {
 
                                     @Override
                                     public void onSuccess(VideoPlayerConfig videoData) {
+                                        Log.i("testj", "Lib success");
                                         if (videoData != null) {
                                             videoList = videoData.getStreamingData().getAdaptiveVideoStreams();
                                             videoListMux = videoData.getStreamingData().getMuxedStreams();
@@ -178,6 +176,7 @@ public class YoutubeExtractor  {
 
                                     @Override
                                     public void onNetworkException(YoutubeRequestException e) {
+                                        Log.i("testj", "Exception 1");
                                         e.printStackTrace();
                                         callback.onError("Something went wrong...");
 
@@ -185,6 +184,7 @@ public class YoutubeExtractor  {
 
                                     @Override
                                     public void onError(Exception exception) {
+                                        Log.i("testj", "Exception 2");
                                         exception.printStackTrace();
                                         callback.onError("Something went Wrong...");
 
@@ -192,6 +192,7 @@ public class YoutubeExtractor  {
                                 });
 
                             } catch (Exception exception) {
+                                Log.i("testj", "Exception 3");
                                 exception.printStackTrace();
                                 callback.onError("Something went Wrong");
 
@@ -200,6 +201,8 @@ public class YoutubeExtractor  {
                         }
 
                     } catch (ExtractionException | IOException e) {
+
+                        Log.i("testj", "Exception 4");
 
                         YoutubeJExtractor youtubeJExtractor = new YoutubeJExtractor();
 
@@ -237,6 +240,7 @@ public class YoutubeExtractor  {
 
                                 @Override
                                 public void onNetworkException(YoutubeRequestException e) {
+                                    Log.i("testj", "Exception 5");
                                     e.printStackTrace();
                                     callback.onError("Something went Wrong");
 
@@ -244,6 +248,7 @@ public class YoutubeExtractor  {
 
                                 @Override
                                 public void onError(Exception exception) {
+                                    Log.i("testj", "Exception 6");
                                     exception.printStackTrace();
                                     callback.onError("Something went Wrong");
 
@@ -251,6 +256,7 @@ public class YoutubeExtractor  {
                             });
 
                         } catch (Exception exception) {
+                            Log.i("testj", "Exception 7");
                             exception.printStackTrace();
                             callback.onError("Something went Wrong");
 
@@ -259,7 +265,7 @@ public class YoutubeExtractor  {
                     }
                 }
                 else {
-
+Log.i("testj", "ELSE 77");
                     YoutubeJExtractor youtubeJExtractor = new YoutubeJExtractor();
 
                     try {
@@ -366,6 +372,7 @@ public class YoutubeExtractor  {
 
         @Override
         protected void onPostExecute(List<VideoStream> videoStreams) {
+            Log.i("testj", "PSOTSTS");
             super.onPostExecute(videoStreams);
             callback.onSuccess(videoStreams);
 
