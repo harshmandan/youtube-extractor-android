@@ -15,12 +15,12 @@ group = 'com.github.harshmandan'
 version = '1.9'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 15
         versionName "1.9"
 
@@ -40,14 +40,14 @@ android {
         }
     }
 }
-    
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.github.TeamNewPipe:NewPipeExtractor:0766b1d211f21e52daca514ef85fc4912c6b18b2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.github.TeamNewPipe:NewPipeExtractor:65125a3eb474ad044e36066f5eabfe0379bc51eb'
     implementation 'com.github.kotvertolet:youtube-jextractor:v0.3.4'
     implementation("com.squareup.okhttp3:okhttp:2.3.0")
     implementation 'com.google.code.gson:gson:2.8.6'
