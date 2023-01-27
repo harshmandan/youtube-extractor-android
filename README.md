@@ -1,5 +1,8 @@
 # youtube-extractor-android
 
+Published on jitpack:
+https://jitpack.io/#harshmandan/youtube-extractor-android/1.9.0
+
 # Usage
 
 Put this inside your project level Gradle:
@@ -9,15 +12,15 @@ repositories {
 	maven { url 'https://jitpack.io' }
 }
 
-```	
+```
 
 And put this inside your app level gradle.
 
-```  
+```
 dependencies {
 	  implementation 'com.github.harshmandan:youtube-extractor-android:1.0.0'
 }
-	
+
 ```
 
 # How to Use:
