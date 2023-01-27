@@ -40,14 +40,14 @@ android {
         }
     }
 }
-
+    
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.3.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.github.TeamNewPipe:NewPipeExtractor:33f9f2cf6690434b420784864c196f94e89e6f62'
+    implementation 'com.github.TeamNewPipe:NewPipeExtractor:0766b1d211f21e52daca514ef85fc4912c6b18b2'
     implementation 'com.github.kotvertolet:youtube-jextractor:v0.3.4'
     implementation("com.squareup.okhttp3:okhttp:2.3.0")
     implementation 'com.google.code.gson:gson:2.8.6'
