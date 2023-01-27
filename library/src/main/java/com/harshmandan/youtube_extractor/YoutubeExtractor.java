@@ -56,7 +56,6 @@ public class YoutubeExtractor  {
 
                   @Override
                   public void onExtractionDone(List<YTMedia> adativeStream, List<YTMedia> muxedStream, List<YTSubtitles> subList, YoutubeMeta meta) {
-
                       Log.e("ADAP", adativeStream.size() + "");
                       Log.e("mux", muxedStream.size() + "");
                       if (adativeStream != null && adativeStream.size() > 0) {
@@ -126,29 +125,38 @@ public class YoutubeExtractor  {
         protected List<VideoStream> doInBackground(String... strings) {
 
             if (!TextUtils.isEmpty(strings[0])) {
+                
 
                 if (ExtractorType.equalsIgnoreCase("NewPipeExtractor") || ExtractorType.equalsIgnoreCase("StreamExtractor")) {
 
                     try {
+                        
                         NewPipe.init(DownloaderTestImpl.getInstance());
+                        
                         YoutubeStreamExtractor streamExtractor = (YoutubeStreamExtractor) YouTube.getStreamExtractor(strings[0]);
+                        
                         streamExtractor.fetchPage();
+                        
                         for (org.schabi.newpipe.extractor.stream.VideoStream stream : streamExtractor.getVideoStreams()) {
+                            
                             VideoStream videoStream = new VideoStream(stream.getResolution(), stream.getUrl(), stream.getItag(), stream.getBitrate(), stream.getCodec(), stream.getFps());
                             videoStreamArrayList.add(videoStream);
                         }
 
                         if (videoStreamArrayList.size() <= 0) {
                             YoutubeJExtractor youtubeJExtractor = new YoutubeJExtractor();
+                            
 
                             try {
                                 String videoId = getYouTubeId(strings[0]);
+                                
                                 youtubeJExtractor.extract(videoId, new JExtractorCallback() {
                                     List<AdaptiveVideoStream> videoList = null;
                                     List<MuxedStream> videoListMux = null;
 
                                     @Override
                                     public void onSuccess(VideoPlayerConfig videoData) {
+                                        
                                         if (videoData != null) {
                                             videoList = videoData.getStreamingData().getAdaptiveVideoStreams();
                                             videoListMux = videoData.getStreamingData().getMuxedStreams();
@@ -173,6 +181,7 @@ public class YoutubeExtractor  {
 
                                     @Override
                                     public void onNetworkException(YoutubeRequestException e) {
+                                        
                                         e.printStackTrace();
                                         callback.onError("Something went wrong...");
 
@@ -180,6 +189,7 @@ public class YoutubeExtractor  {
 
                                     @Override
                                     public void onError(Exception exception) {
+                                        
                                         exception.printStackTrace();
                                         callback.onError("Something went Wrong...");
 
@@ -187,6 +197,7 @@ public class YoutubeExtractor  {
                                 });
 
                             } catch (Exception exception) {
+                                
                                 exception.printStackTrace();
                                 callback.onError("Something went Wrong");
 
@@ -195,6 +206,8 @@ public class YoutubeExtractor  {
                         }
 
                     } catch (ExtractionException | IOException e) {
+
+                        
 
                         YoutubeJExtractor youtubeJExtractor = new YoutubeJExtractor();
 
@@ -232,6 +245,7 @@ public class YoutubeExtractor  {
 
                                 @Override
                                 public void onNetworkException(YoutubeRequestException e) {
+                                    
                                     e.printStackTrace();
                                     callback.onError("Something went Wrong");
 
@@ -239,6 +253,7 @@ public class YoutubeExtractor  {
 
                                 @Override
                                 public void onError(Exception exception) {
+                                    
                                     exception.printStackTrace();
                                     callback.onError("Something went Wrong");
 
@@ -246,6 +261,7 @@ public class YoutubeExtractor  {
                             });
 
                         } catch (Exception exception) {
+                            
                             exception.printStackTrace();
                             callback.onError("Something went Wrong");
 
@@ -361,6 +377,7 @@ public class YoutubeExtractor  {
 
         @Override
         protected void onPostExecute(List<VideoStream> videoStreams) {
+            
             super.onPostExecute(videoStreams);
             callback.onSuccess(videoStreams);
 
