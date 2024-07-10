@@ -14,12 +14,12 @@ group = 'com.github.harshmandan'
 version = '1.98'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 16
         versionName "1.98"
 
