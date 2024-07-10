@@ -42,11 +42,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.github.TeamNewPipe:NewPipeExtractor:fafd471606fd3657078e351d35b7fa8df5d73e4c'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    implementation 'com.github.TeamNewPipe:NewPipeExtractor:4f477ad72b25fa08b1d0b3e829072e8596e3a98d'
     implementation 'com.github.kotvertolet:youtube-jextractor:v0.3.4'
     implementation("com.squareup.okhttp3:okhttp:2.3.0")
     implementation 'com.google.code.gson:gson:2.8.6'
