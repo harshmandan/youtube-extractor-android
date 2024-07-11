@@ -1,11 +1,5 @@
 package com.harshmandan.youtube_extractor;
 
-
-import org.schabi.newpipe.extractor.downloader.Downloader;
-import org.schabi.newpipe.extractor.downloader.Request;
-import org.schabi.newpipe.extractor.downloader.Response;
-import org.schabi.newpipe.extractor.exceptions.ReCaptchaException;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;

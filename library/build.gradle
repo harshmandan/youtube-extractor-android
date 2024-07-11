@@ -11,7 +11,7 @@ repositories {
 }
 
 group = 'com.github.harshmandan'
-version = '2.01'
+version = '2.02'
 
 android {
     compileSdkVersion 33
@@ -20,8 +20,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 21
-        versionName "2.01"
+        versionCode 22
+        versionName "2.02"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

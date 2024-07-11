@@ -46,7 +46,6 @@ public class YoutubeExtractor  {
 
       if (ExtractorType.equalsIgnoreCase("StreamExtractor")) {
           try {
-              Log.e("ERROR EXTRACTING 1", ExtractorType);
               new com.harshmandan.youtube_extractor.StreamExtractor.YoutubeStreamExtractor(new com.harshmandan.youtube_extractor.StreamExtractor.YoutubeStreamExtractor.ExtractorListner() {
                   @Override
                   public void onExtractionGoesWrong(ExtractorException e) {
@@ -57,8 +56,6 @@ public class YoutubeExtractor  {
 
                   @Override
                   public void onExtractionDone(List<YTMedia> adativeStream, List<YTMedia> muxedStream, List<YTSubtitles> subList, YoutubeMeta meta) {
-                      Log.e("ADAP", adativeStream.size() + "");
-                      Log.e("mux", muxedStream.size() + "");
                       if (adativeStream != null && adativeStream.size() > 0) {
 
                           int pos = 0;
@@ -105,7 +102,6 @@ public class YoutubeExtractor  {
           }
       }
       else  {
-          Log.e("ERROR EXTRACTING 2", ExtractorType);
           YoutubeExtractorTask youtubeExtractorTask = new YoutubeExtractorTask();
           youtubeExtractorTask.execute(Url);
       }
@@ -133,8 +129,6 @@ public class YoutubeExtractor  {
 
                     try {
 
-                        Log.e("ERROR USING NEWPIPE", ExtractorType);
-                        
                         NewPipe.init(DownloaderTestImpl.getInstance());
                         
                         YoutubeStreamExtractor streamExtractor = (YoutubeStreamExtractor) YouTube.getStreamExtractor(strings[0]);
@@ -143,16 +137,11 @@ public class YoutubeExtractor  {
 
 
                         for (org.schabi.newpipe.extractor.stream.VideoStream stream : streamExtractor.getVideoStreams()) {
-
-                            Log.e("ERROR NEWPIPE STEAMS","ITAG: "+  stream.getItag() + ", CONTENT: "+stream.getContent()+", URL: "+stream.getUrl());
-                            
                             VideoStream videoStream = new VideoStream(stream.getResolution(), stream.getContent(), stream.getItag(), stream.getBitrate(), stream.getCodec(), stream.getFps());
                             videoStreamArrayList.add(videoStream);
                         }
 
                         if (videoStreamArrayList.size() <= 0) {
-                            Log.e("ERROR NO STREAMS FOUND","USING JEXTRACTOR");
-
                             YoutubeJExtractor youtubeJExtractor = new YoutubeJExtractor();
                             
 
