@@ -46,7 +46,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
-    implementation 'com.github.TeamNewPipe:NewPipeExtractor:a2dc6077f64e17e8b1fc639174af104dc4740c0d'
+    implementation 'com.github.TeamNewPipe:NewPipeExtractor:d39fc432826c830993fdd65c7ebc04cf70a8038f'
     implementation 'com.github.kotvertolet:youtube-jextractor:v0.3.4'
     implementation("com.squareup.okhttp3:okhttp:2.3.0")
     implementation 'com.google.code.gson:gson:2.8.6'
