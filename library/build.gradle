@@ -14,12 +14,12 @@ group = 'com.github.harshmandan'
 version = '2.03'
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "30.0.2"
+    namespace = "com.harshmandan.youtube_extractor"
 
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 33
+        compileSdk 34
         versionCode 23
         versionName "2.03"
 
@@ -27,10 +27,7 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+
 
     buildTypes {
         release {
@@ -59,7 +56,7 @@ afterEvaluate {
         publications {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
-                from components.release
+                from components.findByName('release')
                 groupId = 'com.github.harshmandan'
                 artifactId = 'youtube-extractor-android'
                 version = '1.0'
