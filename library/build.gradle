@@ -11,7 +11,7 @@ repositories {
 }
 
 group = 'com.github.harshmandan'
-version = '2.03'
+version = '2.04'
 
 android {
     namespace = "com.harshmandan.youtube_extractor"
@@ -21,7 +21,7 @@ android {
         targetSdkVersion 33
         compileSdk 33
         versionCode 23
-        versionName "2.03"
+        versionName "2.04"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -43,7 +43,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
-    implementation 'com.github.TeamNewPipe:NewPipeExtractor:2d36945b392beb9804ff2b5afb05592f03c20609'
+    implementation 'com.github.TeamNewPipe:NewPipeExtractor:v0.24.3'
     implementation 'com.github.kotvertolet:youtube-jextractor:v0.3.4'
     implementation("com.squareup.okhttp3:okhttp:2.3.0")
     implementation 'com.google.code.gson:gson:2.8.6'
