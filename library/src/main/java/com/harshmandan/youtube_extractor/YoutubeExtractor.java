@@ -56,8 +56,6 @@ public class YoutubeExtractor  {
 
                   @Override
                   public void onExtractionDone(List<YTMedia> adativeStream, List<YTMedia> muxedStream, List<YTSubtitles> subList, YoutubeMeta meta) {
-                      Log.e("ADAP", adativeStream.size() + "");
-                      Log.e("mux", muxedStream.size() + "");
                       if (adativeStream != null && adativeStream.size() > 0) {
 
                           int pos = 0;
@@ -130,16 +128,16 @@ public class YoutubeExtractor  {
                 if (ExtractorType.equalsIgnoreCase("NewPipeExtractor") || ExtractorType.equalsIgnoreCase("StreamExtractor")) {
 
                     try {
-                        
+
                         NewPipe.init(DownloaderTestImpl.getInstance());
                         
                         YoutubeStreamExtractor streamExtractor = (YoutubeStreamExtractor) YouTube.getStreamExtractor(strings[0]);
                         
                         streamExtractor.fetchPage();
-                        
+
+
                         for (org.schabi.newpipe.extractor.stream.VideoStream stream : streamExtractor.getVideoStreams()) {
-                            
-                            VideoStream videoStream = new VideoStream(stream.getResolution(), stream.getUrl(), stream.getItag(), stream.getBitrate(), stream.getCodec(), stream.getFps());
+                            VideoStream videoStream = new VideoStream(stream.getResolution(), stream.getContent(), stream.getItag(), stream.getBitrate(), stream.getCodec(), stream.getFps());
                             videoStreamArrayList.add(videoStream);
                         }
 
